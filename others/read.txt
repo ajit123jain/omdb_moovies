@@ -1,0 +1,20 @@
+By ID / Title
+i = Valid imdb id 
+t = moovie title for search 
+type = moovie,series,episode 
+y = year of release 
+plot = short / full plot 
+r = json/xml return type 
+callback = jsonp callback 
+v = 1 = Api Version 
+
+
+By search 
+t = moovie title for search 
+type = moovie,series,episode 
+y = year of release 
+plot = short / full plot 
+r = json/xml return type 
+callback = jsonp callback 
+v = 1 = Api Version 
+page = 1-100 
