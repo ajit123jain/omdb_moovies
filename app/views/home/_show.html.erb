@@ -1,0 +1,71 @@
+  
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Moovie</h5>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+      <div class="modal-body">
+        <table class="table w-100">
+          <thead>
+            <tr>
+              <th>Prop Name</th>
+              <th>Prop Value</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td>Title</td>
+                <td><%= moovie["Title"] %></td>
+              </tr>
+              <tr>
+                <td>Release Date</td>
+                <td><%= moovie["Released"] %></td>
+              </tr>
+              <tr>
+                <td>Director</td>
+                <td><%= moovie["Director"] %></td>
+              </tr>
+              <tr>
+                <td>Writer</td>
+                <td><%= moovie["Writer"] %></td>
+              </tr>
+              <tr>
+                <td>Actors</td>
+                <td><%= moovie["Actors"] %></td>
+              </tr>
+              <tr>
+                <td>Language</td>
+                <td><%= moovie["Language"] %></td>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td><%= moovie["Type"] %></td>
+              </tr>
+              <tr>
+                <td>Metascore</td>
+                <td><%= moovie["Metascore"] %></td>
+              </tr>
+              <tr>
+                <td>Rated</td>
+                <td><%= moovie["Rated"] %></td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-danger">Close</button>
+      </div> 
+  </div>
+</div>
+<style>
+  .full_modal-dialog {
+  width: 98% !important;
+  height: 92% !important;
+  min-width: 98% !important;
+  min-height: 92% !important;
+  max-width: 98% !important;
+  max-height: 92% !important;
+  padding: 0 !important;
+}
+</style>

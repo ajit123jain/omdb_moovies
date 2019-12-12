@@ -1,1 +1,21 @@
-<% binding.pry %>
+<table class="table w-100">
+  <thead>
+    <tr>
+      <th>SR No.</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@moovies.each_with_index do |key,i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= key["Title"] %></td>
+        <td><%= key["Type"]%>
+        <td><%= key["Year"]%>
+        <td><%= link_to "Show Details",show_path(key:key["imdbID"]), remote:true,class:'btn btn-primary'%></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
