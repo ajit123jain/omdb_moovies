@@ -1,0 +1,29 @@
+<div class='text-center mt-2'>
+  <h3 style="text-center">Latest Moovies List</h3>
+</div>
+<div class="p-5">
+  <%= form_tag search_path,id:"search-form",class:'block p-2',remote: true, method: "post" do %>
+    <div class="row">
+      <div class="form-group col-4">
+        <%= label_tag :title %>
+        <%= text_field_tag "title",@title,class: "form-control" %>
+      </div>  
+      <div class= "col-4"></div>
+      <div class="col-1"></div>
+      <div class="col-3">
+      <%= submit_tag "Submit",class: "btn btn-primary",style:'margin-top:30px;',onClick:'loader()' %>
+      </div>
+    </div>  
+  <% end %>  
+  <div class="moovies-list block table-responsive"></div>
+  <div class="loader loader-div d-none">
+    <%= image_tag 'loader-ring.gif', style: 'height: 100px;'%>
+    <h2 class="ml-3 mb-0 mt-0">Loading ...</h2>
+  </div>
+</div>
+<script>
+  function loader(){
+    $('.loader').removeClass('d-none')
+  }
+</script>
+<div id="movie_details" class="modal fade m-auto" role="dialog" data-backdrop="static" style:'width:95%'></div>

@@ -18,3 +18,83 @@ r = json/xml return type
 callback = jsonp callback 
 v = 1 = Api Version 
 page = 1-100 
+
+
+#for all sub matrix start index
+k = min(m,n)
+size  = 2;
+while(size < k){
+for(int i=0; i<m-size; i++)
+  for(int j=0; j<n-size; j++){
+    find_matrix(i,j,size)
+  }
+  size++;
+}
+
+# get exact matrix
+def find_matrix(i,j,size)
+  int a[size][size];
+  for(int p=0; p<size; p++)
+    for(int q=0; q<size; q++)
+    a[p][q] = mat[p+i][p+j]
+end
+
+# get logic for magic matrix check
+ static void printSumSimple(int mat[][], int k) 
+    { 
+  
+        // k must be smaller than or  
+        // equal to n 
+        if (k > n) return; 
+          
+        // row number of first cell in  
+        // current sub-square of size k x k 
+        for (int i = 0; i < n-k+1; i++) 
+        { 
+              
+            // column of first cell in current  
+            // sub-square of size k x k 
+            for (int j = 0; j < n-k+1; j++) 
+            { 
+                  
+                // Calculate and print sum of  
+                // current sub-square 
+                int sum = 0; 
+                for (int p = i; p < k+i; p++) 
+                    for (int q = j; q < k+j; q++) 
+                        sum += mat[p][q]; 
+  
+                System.out.print(sum+ " "); 
+            } 
+          
+            // Line separator for sub-squares  
+            // starting with next row 
+            System.out.println(); 
+        } 
+    }
+
+
+
+class Solution {
+    int solution(int M, int[] A) {
+        int N = A.length;
+        int[] count = new int[M + 1];
+        for (int i = 0; i <= M; i++)
+            count[i] = 0;
+        int maxOccurence = 1;
+        int index = -1;
+        for (int i = 0; i < N; i++) {
+            if (count[A[i]] > 0) {
+                count[A[i]]+=1
+                int tmp = count[A[i]];
+                if (tmp > maxOccurence) {
+                    maxOccurence = tmp;
+                    index = i;
+                }
+            } else {
+                count[A[i]] = 1;
+            }
+        }
+        return A[index];
+    }
+}     
