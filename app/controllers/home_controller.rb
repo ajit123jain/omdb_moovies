@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  require 'home_helper'
+
   def index   
   end
 
@@ -8,7 +10,7 @@ class HomeController < ApplicationController
     if response.status == 200
       data = JSON.parse(response.body)
       if data["Response"] == "True"
-        @moovies = data["Search"]
+        @moovies = favourite(data["Search"])
       else
         
       end
@@ -27,4 +29,12 @@ class HomeController < ApplicationController
       end
     end      
   end
+
+  private 
+  def favourite(moovies)
+    moovies.each do |moovie|
+      moovie["Favourite"] = 0
+    end
+    return moovies
+  end  
 end

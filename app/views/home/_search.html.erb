@@ -5,6 +5,8 @@
       <th>Title</th>
       <th>Type</th>
       <th>Year</th>
+      <th>Favourite</th>
+      <th>Star</th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +16,28 @@
         <td><%= key["Title"] %></td>
         <td><%= key["Type"]%>
         <td><%= key["Year"]%>
+        <td>
+          <ion-icon name="star" style="font-size:48px;color:yellow;" data-id = '<%= key["imdbID"]%>' class="filled-star filled-star-<%= key["imdbID"]%> <%=key["Favourite"].to_i == 0 ? 'd-none': ''%>"></ion-icon>
+          <ion-icon name="star-outline" style="font-size:48px;" data-id ='<%= key["imdbID"]%>' class=" empty-star empty-star-<%= key["imdbID"]%> <%=key["Favourite"].to_i == 1 ? 'd-none': ''%>"></ion-icon>
+        </td>
         <td><%= link_to "Show Details",show_path(key:key["imdbID"]), remote:true,class:'btn btn-primary'%></td>
       </tr>
     <% end %>  
   </tbody>
 </table>
+<script>
+$(document).on('click',".empty-star",function() {
+  $(this).addClass('d-none')
+  id = $(this).attr('data-id')
+  fill_id = ".filled-star-"+id
+  $(fill_id).removeClass('d-none')
+  
+  });
+$(document).on('click',".filled-star",function() {
+  $(this).addClass('d-none')
+  id = $(this).attr('data-id')
+  empty_id = ".empty-star-"+id
+  $(empty_id).removeClass('d-none') 
+  
+});
+</script>
