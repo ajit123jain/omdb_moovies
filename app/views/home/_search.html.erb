@@ -31,13 +31,31 @@ $(document).on('click',".empty-star",function() {
   id = $(this).attr('data-id')
   fill_id = ".filled-star-"+id
   $(fill_id).removeClass('d-none')
-  
+  jQuery.ajax({
+    type: "get",
+    url: "favourite",
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    data: {favourite:1,key:id,remote: "true" },
+    success: function(response){
+      console.log(response)
+    }
   });
+});
 $(document).on('click',".filled-star",function() {
   $(this).addClass('d-none')
   id = $(this).attr('data-id')
   empty_id = ".empty-star-"+id
   $(empty_id).removeClass('d-none') 
+  jQuery.ajax({
+    type: "get",
+    url: "favourite",
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    data: {favourite:0,key:id,remote: "true" },
+    success: function(response){
+      console.log(response)
+    }
+  });
   
 });
+$('.action-div').removeClass('d-none')
 </script>

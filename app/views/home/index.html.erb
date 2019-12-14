@@ -15,6 +15,14 @@
       </div>
     </div>  
   <% end %>  
+  <div class="row action-div d-none">
+    <div class="col-6">
+      <td><%= link_to "Show All",show_all_path,remote:true,class:'btn btn-primary'%></td>
+    </div>
+    <div class="col-6">
+      <td><%= link_to "Show Favourites",show_favourite_path, remote:true,class:'btn btn-primary'%></td>
+    </div>
+  </div>
   <div class="moovies-list block table-responsive"></div>
   <div class="loader loader-div d-none">
     <%= image_tag 'loader-ring.gif', style: 'height: 100px;'%>
